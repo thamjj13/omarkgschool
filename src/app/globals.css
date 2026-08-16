@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-h: 72px;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces Variable", ui-serif, Georgia, "Times New Roman", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-white text-ink-900 antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  @apply bg-brand-200 text-brand-950;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid theme("colors.brand.500");
+  outline-offset: 2px;
+}
+
+/* Prose styling for rich-text content (rendered from the admin editor) */
+.prose-html {
+  @apply text-ink-800 leading-relaxed;
+}
+.prose-html h2 {
+  @apply mt-8 mb-3 font-display text-2xl font-semibold text-ink-950;
+}
+.prose-html h3 {
+  @apply mt-6 mb-2 font-display text-xl font-semibold text-ink-950;
+}
+.prose-html h4 {
+  @apply mt-4 mb-2 font-semibold text-ink-950;
+}
+.prose-html p {
+  @apply my-3;
+}
+.prose-html ul {
+  @apply my-3 list-disc pl-6;
+}
+.prose-html ol {
+  @apply my-3 list-decimal pl-6;
+}
+.prose-html li {
+  @apply my-1;
+}
+.prose-html a {
+  @apply font-medium text-brand-600 underline decoration-brand-300 underline-offset-2 hover:text-brand-700;
+}
+.prose-html blockquote {
+  @apply my-4 border-l-4 border-accent-400 bg-accent-50 px-4 py-2 italic text-ink-700;
+}
+.prose-html img {
+  @apply my-4 h-auto max-w-full rounded-xl;
+}
+.prose-html strong {
+  @apply font-semibold text-ink-950;
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  @apply relative overflow-hidden rounded-md bg-ink-100;
+}
+.skeleton::after {
+  content: "";
+  @apply absolute inset-0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+  animation: shimmer 1.4s linear infinite;
+}
+
+/* Custom scrollbar (desktop only) */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: theme("colors.ink.50");
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme("colors.ink.200");
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme("colors.brand.300");
+  }
+}
+
+/* Utility for the grain/pattern backgrounds */
+.bg-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(8, 23, 21, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}

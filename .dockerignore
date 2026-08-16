@@ -1,0 +1,10 @@
+node_modules
+.next
+data
+uploads
+logs
+.env
+.git
+coverage
+*.log
+tests
